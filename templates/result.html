@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hotel Review Sentiment Analysis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="SMS Spam Filter, Spam, Ham">
+    <meta name="description" content="Spam or Ham SMS Filter">
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            margin-bottom: 100px; /* Adjust as needed based on the footer height */
+        }
+
+        header {
+            background-color: #38419D;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .header-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .shape-1,
+        .shape-2 {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: #de9815;
+            border-radius: 50%;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .shape-1 {
+            top: 50%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+ 
+        }
+
+        .shape-2 {
+            top: 30%;
+            right: 10%;
+            transform: translate(-50%, -50%);
+        
+        }
+
+        .display-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-bottom: 3px solid #3498db;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .jumbotron {
+          background-color: rgba(255, 255, 255, 0.8);
+          color: #000;
+          padding: 3rem 0;
+          margin: 0;
+        }
+
+        .results {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .result-text {
+            font-size: 2rem;
+            margin-top: 0rem;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 30px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #38419D;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .copyright-text {
+            white-space: nowrap;
+            overflow: hidden;
+            animation: moveLeft 10s linear infinite;
+        }
+
+        @keyframes moveLeft {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-shapes">
+            <div class="shape-1"></div>
+            <div class="shape-2"></div>
+        </div>
+        <div class="jumbotron">
+            <div class="container text-center">
+                <h1 class="display-heading">Sentiview Hotel: Analisis Sentimen Ulasan dengan Cepat dan Akurat
+                     Result</h1>
+                <p class="lead"></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <p class="lead text-center" style="font-size: 40px;"><b><u>Result</u></b></p>
+            <div class="results">
+                {% if prediction == 0 %}
+                <h2 class="result-text" style="color: #e74c3c;">Bad Review (Negative)</h2>
+                {% elif prediction == 1 %}
+                <h2 class="result-text" style="color: #2ecc71;">Good Review (Positive)</h2>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="copyright-text">&copy; 2023 Sepoeh.Corp. All Rights Reserved.</div>
+    </footer>
+
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+</body>
+
+</html>
+
